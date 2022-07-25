@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>공통 템플릿</title>
+
+    <link href="guide.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/common.css">
+    <script src="../../js/libs/jquery-1.9.1.js"></script>
+
+    <script>
+        (function($) {
+            $(function() {
+                let gBox = `<div class="guideBox">
+					<pre class="brush: html;">
+					</pre>
+				</div>
+				`;
+
+                const $guideElement = $('.guideElement');
+                $guideElement.each(function() {
+                    $(this).after(gBox);
+                    const $element = $(this).html();
+                    $(this).next().children('pre').html($element);
+                });
+
+            });
+        })(jQuery);
+    </script>
+
+    <script type="text/javascript" src="../code/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../code/scripts/shBrushBash.js"></script>
+    <script type="text/javascript" src="../code/scripts/shBrushCss.js"></script>
+    <script type="text/javascript" src="../code/scripts/shBrushJava.js"></script>
+    <script type="text/javascript" src="../code/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../code/scripts/shBrushXml.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../code/styles/shCore.css" />
+    <link type="text/css" rel="stylesheet" href="../code/styles/shThemeDefault.css" />
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+
+    <!-- 구현 페이지 js -->
+    <script src="../../js/common_ui.js"></script>
+    <script src="../../js/ui_custom.js"></script>
+    <!-- 구현 페이지 js -->
+
+    <style>
+        body {
+            padding-top: 80px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="maping">
+        <a href="template.html">Component</a>
+        <a href="template_element.html">Element</a>
+        <a href="template_layout.html">Layout</a>
+    </div>
+
+    <style>
+        .guide-btns .btn {
+            margin-bottom: 20px;
+        }
+
+        .guide-btns.hori .btn {
+            margin-right: 20px;
+            margin-bottom: 0;
+        }
+    </style>
+
+
+    <h1 class="guideTitleh1">Component</h1>
+
+    <h2 class="guideTitleh2">Font</h2>
+    <div class="guideElement" style="font-size: 40px;">
+        <p>Pretendard Roboto Condensed 한글 Eng 123456789</p>
+        <p class="fw-7">Pretendard Roboto Condensed 한글 Eng 123456789</p>
+        <p class="font-eng">Roboto Condensed Regular 123456789 한글</p>
+        <p class="font-eng fw-7">Roboto Condensed Bold 123456789 한글</p>
+        <p class="font-kor">한글 Pretendard Regular 123456789</p>
+        <p class="font-kor fw-5">한글 Pretendard Medium 123456789</p>
+        <p class="font-kor fw-7">한글 Pretendard Bold 123456789</p>
+    </div>
+
+    <h2 class="guideTitleh2">Font</h2>
+    <div class="guideElement">
+        <p class="text-t ty1">Bold, Size: 36, Line: 44px</p>
+        <p class="text-t ty2">Bold, Size: 28, Line: 37px</p>
+        <p class="text-t ty3">Bold, Size: 24, Line: 28px</p>
+        <p class="text-t ty4">Bold, Size: 18, Line: 22px</p>
+        <p class="text-t ty5">Bold, Size: 16, Line: 20px</p>
+        <p class="text-t ty6">Medium, Size: 14, Line: 18px</p>
+        <span class="text-t ty6 essential">아이디</span>
+        <p class="text-c ty1">아이디 혹은 비밀번호가 올바르지 않습니다.</p>
+        <p class="text-c ty2">인증되었습니다</p>
+        <span class="essential-text">필수 입력 항목</span>
+        <div style="background-color: #111;">
+            <p class="color-1">#fff</p>
+        </div>
+        <p class="color-2">#888</p>
+        <p class="color-3">#111</p>
+        <p class="color-4">#ce001b</p>
+    </div>
+
+    <h2 class="guideTitleh2">Breadcrumb</h2>
+    <div class="guideElement">
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <a href="#">신발</a>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Checkbox</h2>
+    <div class="guideElement">
+        <div class="chkbox">
+            <label>
+                <input type="checkbox" name="" id="">
+                <span class="text">확인</span>
+            </label>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Radio</h2>
+    <div class="guideElement">
+        <div class="chkbox">
+            <label>
+                <input type="radio" name="chk" id="">
+                <span class="text">예</span>
+            </label>
+        </div>
+        <div class="chkbox">
+            <label>
+                <input type="radio" name="chk" id="">
+                <span class="text">아니오</span>
+            </label>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Button</h2>
+    <div class="guideElement" style="width: 500px;">
+        <div class="guide-btns">
+            <a href="#" class="btn ty1 w-full"><span class="text">로그인</span></a>
+            <a href="#" class="btn ty2 w-full"><span class="text">회원가입</span></a>
+            <button type="button" class="btn ty2 w-full active"><span class="text">ty2 활성화</span></button>
+            <button type="button" class="btn ty2 w-full" disabled><span class="text">버튼</span></button>
+            <a href="#" class="btn ty3 w-full"><span class="text">카카오</span></a>
+            <a href="#" class="btn ty4 w-full"><span class="text">네이버</span></a>
+            <a href="#" class="btn ty1 h-ty1 w-full"><span class="text">버튼 Height 30</span></a>
+            <a href="#" class="btn ty2 h-ty1 w-full"><span class="text">버튼 Height 30</span></a>
+            <a href="#" class="btn ty1 h-ty2 w-full"><span class="text">버튼 Height 48</span></a>
+            <a href="#" class="btn ty2 h-ty2 w-full"><span class="text">버튼 Height 48</span></a>
+            <a href="#" class="btn ty1 h-ty3 w-full"><span class="text">버튼 Height 40</span></a>
+            <a href="#" class="btn ty2 h-ty3 w-full"><span class="text">버튼 Height 40</span></a>
+        </div>
+    </div>
+
+
+    <h2 class="guideTitleh2">Button</h2>
+    <div class="guideElement">
+        <div class="guide-btns hori">
+            <button type="button" class="btn icon bag"><span class="text">장바구니</span></button>
+            <button type="button" class="btn icon delete"><span class="text">삭제</span></button>
+            <button type="button" class="btn icon delete etc-ty1"><span class="text">삭제</span></button>
+            <button type="button" class="btn icon fb"><span class="text">Facebook</span></button>
+            <button type="button" class="btn icon f-logo"><span class="text">Millet</span></button>
+            <button type="button" class="btn icon insta"><span class="text">Instagram</span></button>
+            <button type="button" class="btn icon kakao"><span class="text">Kakao</span></button>
+            <button type="button" class="btn icon like"><span class="text">찜하기</span></button>
+            <button type="button" class="btn icon like etc-ty1"><span class="text">찜하기</span></button>
+            <button type="button" class="btn icon like etc-ty1 active"><span class="text">찜하기</span></button>
+            <button type="button" class="btn icon login"><span class="text">로그인</span></button>
+            <button type="button" class="btn icon history"><span class="text">최근 본 상품</span></button>
+            <button type="button" class="btn icon naver"><span class="text">Naver</span></button>
+            <button type="button" class="btn icon pagetop"><span class="text">위로 이동</span></button>
+            <button type="button" class="btn icon search"><span class="text">검색</span></button>
+            <button type="button" class="btn icon youtube"><span class="text">youtube</span></button>
+            <button type="button" class="btn icon close"><span class="text">닫기</span></button>
+            <a href="#" class="btn icon kakao-dark"><span class="text">Kakao</span></a>
+            <a href="#" class="btn icon fb-dark"><span class="text">Facebook</span></a>
+            <button type="button" class="btn icon clipboard"><span class="text">URL복사하기</span></button>
+            <button type="button" class="btn icon share" data-tipopen><span class="text">공유하기</span></button>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Button - text type</h2>
+    <div class="guideElement">
+        <div class="guide-btns hori">
+            <a href="#" class="btn text-ty t-ty1"><span class="text">전체삭제</span></a>
+            <a href="#" class="btn text-ty t-ty2"><span class="text">#메가쿨 여름 팬츠</span></a>
+            <a href="#" class="btn text-ty t-ty3"><span class="text">아이디 찾기</span></a>
+            <a href="#" class="btn text-ty t-ty4"><span class="text">비회원 주문하기</span></a>
+            <a href="#" class="btn text-ty t-ty4 underline"><span class="text">비회원 주문하기</span></a>
+            <a href="#" class="btn text-ty t-ty5"><span class="text">내용보기</span></a>
+            <button type="button" class="btn text-ty t-ty6"><span class="text">필터</span></button>
+            <a href="#" class="btn text-ty t-ty7"><span class="text">자세히보기</span></a>
+            <button type="button" class="btn btn-more" data-active-click=""><span class="text">더보기</span></button>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Input</h2>
+    <div class="guideElement">
+        <div class="input">
+            <input type="text" name="" id="" class="inp">
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Input - disabled</h2>
+    <div class="guideElement">
+        <div class="input">
+            <input type="text" name="" id="" class="inp" value="내용" disabled="disabled">
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Selectbox</h2>
+    <div class="guideElement">
+        <select name="" id="" class="selectbox">
+            <option value="">내용</option>
+        </select>
+    </div>
+
+    <h2 class="guideTitleh2">Selectbox</h2>
+    <div class="guideElement">
+        <select name="" id="" class="selectbox" required>
+            <option value="" disabled selected hidden>이전 이용약관 보기</option>
+            <option value="">2022.02.08 이용약관</option>
+            <option value="">2022.01.08 이용약관</option>
+        </select>
+    </div>
+
+    <h2 class="guideTitleh2">Selectbox - ty1</h2>
+    <div class="guideElement">
+        <select name="" id="" class="selectbox ty1">
+            <option value="">신상품순</option>
+            <option value="">인기순</option>
+            <option value="">가격낮은순</option>
+            <option value="">가격높은순</option>
+        </select>
+    </div>
+
+    <h2 class="guideTitleh2">Selectbox - disabled</h2>
+    <div class="guideElement">
+        <select name="" id="" class="selectbox" disabled="disabled">
+            <option value="">내용</option>
+        </select>
+    </div>
+
+    <h2 class="guideTitleh2">Textarea</h2>
+    <div class="guideElement">
+        <div class="textarea font-kor w-full">
+            <div class="box">
+                <textarea name="" id="" cols="30" rows="10" maxlength="1000" placeholder="문의내용은 1000자 이하로 작성해주세요"></textarea>
+                <div class="length">
+                    <span class="count">0</span>
+                    <span>/1000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">flex-wrap - 생일</h2>
+    <div class="guideElement" style="width: 500px;">
+        <div class="flex-wrap">
+            <select name="" id="" class="selectbox">
+                <option value="">1900</option>
+            </select>
+            <select name="" id="" class="selectbox">
+                <option value="">09</option>
+            </select>
+            <select name="" id="" class="selectbox">
+                <option value="">16</option>
+            </select>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">flex-wrap - 휴대폰번호</h2>
+    <div class="guideElement" style="width: 500px;">
+        <div class="flex-wrap ty1">
+            <select name="" id="" class="selectbox">
+                <option value="">010</option>
+            </select>
+            <div class="input">
+                <input type="number" name="" id="" class="inp">
+            </div>
+            <div class="input">
+                <input type="number" name="" id="" class="inp">
+            </div>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">flex-wrap - 이메일 주소</h2>
+    <div class="guideElement" style="width: 500px;">
+        <div class="flex-wrap ty2">
+            <div class="input">
+                <input type="text" name="" id="" class="inp">
+            </div>
+            <div class="input">
+                <input type="text" name="" id="" class="inp">
+            </div>
+            <select name="" id="" class="selectbox">
+                <option value="">gmail.com</option>
+                <option value="">naver.com</option>
+                <option value="">daum.net</option>
+                <option value="">kakao.com</option>
+                <option value="">nate.com </option>
+                <option value="" selected>직접입력</option>
+            </select>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">flex-wrap</h2>
+    <div class="guideElement" style="width: 500px;">
+        <div class="flex-wrap ty3">
+            <div class="input">
+                <input type="text" name="" id="" class="inp">
+            </div>
+            <button type="button" class="btn ty1"><span class="text">중복확인</span></button>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">flex-wrap(상품가격 필터)</h2>
+    <div class="guideElement" style="width: 500px;">
+        <div class="flex-wrap ty4">
+            <div class="input">
+                <input type="text" name="" id="" class="inp h-36 num-comma">
+            </div>
+            <div class="input">
+                <input type="text" name="" id="" class="inp h-36 num-comma">
+            </div>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Pagination</h2>
+    <div class="guideElement">
+        <div class="pagination">
+            <a href="#" class="page-btn first">처음 페이지</a>
+            <a href="#" class="page-btn prev">이전 페이지</a>
+            <div class="pager">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+            </div>
+            <a href="#" class="page-btn next">다음 페이지</a>
+            <a href="#" class="page-btn last">마지막 페이지</a>
+        </div>
+    </div>
+    @include("_pagination.html", {
+    "class" : ""
+    })
+
+    <h2 class="guideTitleh2">Badge</h2>
+    <div class="guideElement">
+        <div class="badge-cont">
+            <span class="badge-item ty1">BEST</span>
+            <span class="badge-item ty1">NEW</span>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Table - type1</h2>
+    <div class="guideElement">
+        <div class="tbl ty1">
+            <table>
+                <colgroup>
+                    <col style="width:160px">
+                    <col style="width:auto">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>타이틀</th>
+                        <th>타이틀</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="title">타이틀</th>
+                        <td>내용</td>
+                    </tr>
+                    <tr>
+                        <th class="title">타이틀</th>
+                        <td>내용</td>
+                    </tr>
+                    <tr>
+                        <th class="title">타이틀</th>
+                        <td><span class="fw-7">볼드</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Table - type2</h2>
+    <div class="guideElement">
+        <div class="tbl ty2">
+            <table>
+                <colgroup>
+                    <col style="width: 190px;">
+                    <col style="width: auto;">
+                    <col style="width: 190px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>CONTENT</th>
+                        <th>DATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="badge-cont">
+                                <span class="badge-item ty1">안내</span>
+                            </div>
+                        </td>
+                        <td class="ta-l fz-14">
+                            <a href="#" class="fz-14 line-clamp-1 fw-7">MILLET 밀레 쇼핑몰 배송지 변경</a>
+                        </td>
+                        <td class="color-2">2022.06.03</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Table - type3</h2>
+    <div class="guideElement">
+        <div class="tbl ty3">
+            <table>
+                <colgroup>
+                    <col style="width:103px">
+                    <col style="width:auto">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>이름</th>
+                        <td>김밀레</td>
+                    </tr>
+                    <tr>
+                        <th>이메일 주소</th>
+                        <td>millet0610@naver.com</td>
+                    </tr>
+                    <tr>
+                        <th>연락처</th>
+                        <td>010-8485-1234</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Table - type4</h2>
+    <div class="guideElement">
+        <div class="tbl ty4">
+            <table>
+                <colgroup>
+                    <col style="width: auto;">
+                    <col style="width: auto;">
+                    <col style="width: auto;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>보존이유</th>
+                        <th>보존기간</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-7">방문에 관한 기록</td>
+                        <td>통신비밀보호법</td>
+                        <td class="ta-c">3개월</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <h2 class="guideTitleh2">Tab - type1</h2>
+    <div class="guideElement">
+        <div class="tab ty1">
+            <button type="button" class="btn active"><span class="text">상세정보</span></button>
+            <button type="button" class="btn"><span class="text">리뷰(8)</span></button>
+            <button type="button" class="btn"><span class="text">상품문의</span></button>
+            <button type="button" class="btn"><span class="text">배송/교환/반품</span></button>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Tab - type2</h2>
+    <div class="guideElement">
+        <div class="tab ty2">
+            <span><a href="#">OUTER</a></span>
+            <span><a href="#" class="active">TOP</a></span>
+            <span><a href="#">BOTTOM</a></span>
+            <span><a href="#">TRACKSUIT</a></span>
+            <span><a href="#">SHOES</a></span>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Tab - type3</h2>
+    <div class="guideElement">
+        <div class="tab ty3">
+            <span><a href="#">전체</a></span>
+            <span><a href="#" class="active">고어텍스 자켓</a></span>
+            <span><a href="#">SS방수/방풍 자켓</a></span>
+            <span><a href="#">FW방수/방풍 자켓</a></span>
+            <span><a href="#">베스트</a></span>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Tab - type4</h2>
+    <div class="guideElement">
+        <div class="tab ty4">
+            <a href="#" class="active"><span class="text">공지사항</span></a>
+            <a href="#"><span class="text">FAQ</span></a>
+            <a href="#"><span class="text">AS안내</span></a>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Tab - type4 - etc-ty1</h2>
+    <div class="guideElement">
+        <div class="tab ty4 etc-ty1">
+            <a href="#" class="active"><span class="text">사용가능 쿠폰</span></a>
+            <a href="#"><span class="text">사용종료 쿠폰</span></a>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">Tab - type5</h2>
+    <div class="guideElement">
+        <div class="tab ty5">
+            <label>
+                <input type="radio" name="data-range" id="" checked>
+                <span class="text">1개월</span>
+            </label>
+            <label>
+                <input type="radio" name="data-range" id="">
+                <span class="text">3개월</span>
+            </label>
+            <label>
+                <input type="radio" name="data-range" id="">
+                <span class="text">6개월</span>
+            </label>
+            <label>
+                <input type="radio" name="data-range" id="">
+                <span class="text">1년</span>
+            </label>
+        </div>
+    </div>
+
+    <h2 class="guideTitleh2">List - type1</h2>
+    <div class="guideElement">
+        <ul class="list ty1">
+            <li>리스트</li>
+            <li>리스트 <br> 리스트</li>
+            <li>리스트</li>
+            <li class="etc-ty1">리스트</li>
+            <li class="etc-ty1">리스트</li>
+            <li class="etc-ty2">reset</li>
+        </ul>
+    </div>
+
+    <h2 class="guideTitleh2">List - type2</h2>
+    <div class="guideElement">
+        <ul class="list ty2">
+            <li>
+                <a href="#">검색어</a>
+                <button type="button" class="btn icon close"><span class="text">삭제</span></button>
+            </li>
+            <li>
+                <a href="#">검색어</a>
+                <button type="button" class="btn icon close"><span class="text">삭제</span></button>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="guideTitleh2">List - type3</h2>
+    <div class="guideElement">
+        <ul class="list ty3">
+            <li>리스트</li>
+            <li>리스트 <br> 리스트</li>
+            <li>리스트</li>
+            <li>리스트 <span class="color-2">리스트</span></li>
+        </ul>
+    </div>
+
+    <h2 class="guideTitleh2">List - type4 - 상/하 간격 14</h2>
+    <div class="guideElement">
+        <ul class="list ty4">
+            <li>
+                <span class="tit">상품금액</span>
+                <span class="cont">658,000원</span>
+            </li>
+            <li>
+                <span class="tit">배송비</span>
+                <span class="cont">0원</span>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="guideTitleh2">List - type5 - 상/하 간격 10</h2>
+    <div class="guideElement">
+        <ul class="list ty5">
+            <li>
+                <span class="tit">상품금액</span>
+                <span class="cont">658,000원</span>
+            </li>
+            <li>
+                <span class="tit">배송비</span>
+                <span class="cont">0원</span>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="guideTitleh2"></h2>
+    <div class="guideElement">
+
+    </div>
+
+    <h2 class="guideTitleh2"></h2>
+    <div class="guideElement">
+
+    </div>
+
+    <h2 class="guideTitleh2"></h2>
+    <div class="guideElement">
+
+    </div>
+
+
+</body>
+
+</html>
